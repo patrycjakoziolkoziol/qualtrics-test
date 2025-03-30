@@ -1,78 +1,8 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Qualtrics Test</title>
-  </head>
-  <body>
-    <h1>✅ Qualtrics Intercept Test</h1>
-    <p>Now add <code>?testuser=1</code> to the URL.</p>
-
-    <!-- BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET -->
-    <script type="text/javascript">
-      (function(){
-        var g=function(e,h,f,g){
-          this.get=function(a){
-            for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){
-              for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);
-              if(0==d.indexOf(a))return d.substring(a.length,d.length)
-            }
-            return null
-          };
-          this.set=function(a,c){
-            var b="",b=new Date;
-            b.setTime(b.getTime()+6048E5);
-            b="; expires="+b.toGMTString();
-            document.cookie=a+"="+c+b+"; path=/; "
-          };
-          this.check=function(){
-            var a=this.get(f);
-            if(a)a=a.split(":");
-            else if(100!=e)
-              "v"==h&&(e=Math.random()>=e/100?0:100),
-              a=[h,e,0],
-              this.set(f,a.join(":"));
-            else return!0;
-            var c=a[1];
-            if(100==c)return!0;
-            switch(a[0]){
-              case "v":return!1;
-              case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c
-            }
-            return!0
-          };
-          this.go=function(){
-            if(this.check()){
-              var a=document.createElement("script");
-              a.type="text/javascript";
-              a.src=g;
-              document.body && document.body.appendChild(a)
-            }
-          };
-          this.start=function(){
-            var t=this;
-            "complete" !== document.readyState ?
-              window.addEventListener ?
-                window.addEventListener("load", function(){t.go()}, !1) :
-              window.attachEvent && window.attachEvent("onload", function(){t.go()}) :
-              t.go()
-          };
-        };
-        try {
-          (new g(100, "r", "QSI_S_ZN_1DSSJ1zsMXAoCJK",
-          "https://zn1dssj1zsmxaocjk-moto.siteintercept.qualtrics.com/SIE/?Q_ZID=ZN_1DSSJ1zsMXAoCJK")).start();
-        } catch(i){}
-      })();
-    </script>
-    <div id='ZN_1DSSJ1zsMXAoCJK'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
-    <!-- END QUALTRICS SNIPPET -->
-
-  </body>
-</html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Website Screenshot Mockup</title>
+  <title>Qualtrics Test with Screenshot</title>
   <style>
     body {
       margin: 0;
@@ -96,10 +26,72 @@
 </head>
 <body>
 
+  <h1>✅ Qualtrics Intercept Test</h1>
+  <p>Now add <code>?testuser=1</code> to the URL.</p>
+
+  <!-- Screenshot display -->
   <div class="mock-container">
     <img src="repairs-page.png" alt="Repairs Page Screenshot">
   </div>
 
+  <!-- BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET -->
+  <script type="text/javascript">
+    (function(){
+      var g=function(e,h,f,g){
+        this.get=function(a){
+          for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){
+            for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);
+            if(0==d.indexOf(a))return d.substring(a.length,d.length)
+          }
+          return null
+        };
+        this.set=function(a,c){
+          var b="",b=new Date;
+          b.setTime(b.getTime()+6048E5);
+          b="; expires="+b.toGMTString();
+          document.cookie=a+"="+c+b+"; path=/; "
+        };
+        this.check=function(){
+          var a=this.get(f);
+          if(a)a=a.split(":");
+          else if(100!=e)
+            "v"==h&&(e=Math.random()>=e/100?0:100),
+            a=[h,e,0],
+            this.set(f,a.join(":"));
+          else return!0;
+          var c=a[1];
+          if(100==c)return!0;
+          switch(a[0]){
+            case "v":return!1;
+            case "r":return c=a[2]%Math.floor(100/c),a[2]++,this.set(f,a.join(":")),!c
+          }
+          return!0
+        };
+        this.go=function(){
+          if(this.check()){
+            var a=document.createElement("script");
+            a.type="text/javascript";
+            a.src=g;
+            document.body && document.body.appendChild(a)
+          }
+        };
+        this.start=function(){
+          var t=this;
+          "complete" !== document.readyState ?
+            window.addEventListener ?
+              window.addEventListener("load", function(){t.go()}, !1) :
+            window.attachEvent && window.attachEvent("onload", function(){t.go()}) :
+            t.go()
+        };
+      };
+      try {
+        (new g(100, "r", "QSI_S_ZN_1DSSJ1zsMXAoCJK",
+        "https://zn1dssj1zsmxaocjk-moto.siteintercept.qualtrics.com/SIE/?Q_ZID=ZN_1DSSJ1zsMXAoCJK")).start();
+      } catch(i){}
+    })();
+  </script>
+  <div id='ZN_1DSSJ1zsMXAoCJK'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+  <!-- END QUALTRICS SNIPPET -->
+
 </body>
 </html>
-
