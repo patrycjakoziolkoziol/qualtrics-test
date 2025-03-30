@@ -3,41 +3,48 @@
   <head>
     <title>Qualtrics Test</title>
 
-    <!-- ✅ Inject styles into Qualtrics modal AFTER it's loaded -->
+    <!-- ✅ Force modal styling using JS-injected CSS -->
     <script>
       window.addEventListener('load', function () {
-        const checkInterval = setInterval(() => {
+        const interval = setInterval(() => {
           const modal = document.querySelector('.QSIFeedbackButton-target-container');
           if (modal) {
-            // Style the modal
-            modal.style.width = '301px';
-            modal.style.maxWidth = '301px';
-            modal.style.height = '478px';
-            modal.style.right = '20px';
-            modal.style.left = 'auto';
-            modal.style.bottom = '100px';
-            modal.style.borderRadius = '8px';
-            modal.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.1)';
-            modal.style.overflow = 'hidden';
-            modal.style.padding = '0';
-            modal.style.margin = '0';
-            modal.style.boxSizing = 'border-box';
-            modal.style.position = 'fixed';
-            modal.style.backgroundColor = '#ffffff';
-            modal.style.zIndex = '9999';
+            const style = document.createElement('style');
+            style.innerHTML = `
+              .QSIFeedbackButton-target-container {
+                width: 301px !important;
+                max-width: 301px !important;
+                height: 478px !important;
+                bottom: 120px !important;
+                right: 20px !important;
+                left: auto !important;
+                background-color: #fff !important;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
+                border-radius: 8px !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                position: fixed !important;
+                z-index: 2000000001 !important;
+              }
 
-            // Style the iframe inside
-            const iframe = modal.querySelector('iframe');
-            if (iframe) {
-              iframe.style.width = '100%';
-              iframe.style.height = '100%';
-              iframe.style.border = 'none';
-              iframe.style.display = 'block';
-            }
+              .QSIFeedbackButton-target-container iframe {
+                width: 100% !important;
+                height: 100% !important;
+                border: none !important;
+                display: block !important;
+              }
 
-            clearInterval(checkInterval);
+              .QSIFeedbackButton {
+                bottom: 120px !important;
+                right: 20px !important;
+                z-index: 2000000002 !important;
+              }
+            `;
+            document.head.appendChild(style);
+            clearInterval(interval);
           }
-        }, 100); // check every 100ms
+        }, 100);
       });
     </script>
 
@@ -93,9 +100,8 @@
         }catch(i){}
       })();
     </script>
-    <!-- ✅ End Qualtrics Snippet -->
-
   </head>
+
   <body>
     <h1>✅ Qualtrics Intercept Test</h1>
     <p>Now add <code>?testuser=1</code> to the URL.</p>
