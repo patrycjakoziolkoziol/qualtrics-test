@@ -3,24 +3,36 @@
   <head>
     <title>Qualtrics Test</title>
 
-    <!-- ✅ Custom CSS to shrink Qualtrics feedback modal -->
+    <!-- ✅ Custom CSS to truly shrink the Qualtrics modal -->
     <style>
-      /* Outer container of the modal */
+      /* NARROW the outer Qualtrics feedback modal */
       .QSIFeedbackButton-target-container {
         width: 320px !important;
         max-width: 320px !important;
-        height: auto !important;
+        left: auto !important;
+        right: 20px !important;
+        bottom: 100px !important;
         padding: 0 !important;
+        margin: 0 !important;
         box-sizing: border-box !important;
-        overflow: hidden !important;
+        border-radius: 12px !important;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
+        transition: all 0.3s ease !important;
       }
 
-      /* Make iframe match container size */
+      /* Make iframe fit its container */
       .QSIFeedbackButton-target-container iframe {
         width: 100% !important;
-        height: auto !important;
-        display: block;
+        height: 100% !important;
         border: none !important;
+        display: block;
+      }
+
+      /* Optional: move and size the Feedback tab */
+      .QSIFeedbackButton {
+        bottom: 100px !important;
+        right: 20px !important;
+        width: auto !important;
       }
     </style>
 
@@ -84,3 +96,4 @@
     <p>Now add <code>?testuser=1</code> to the URL.</p>
   </body>
 </html>
+
