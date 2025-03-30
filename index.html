@@ -3,52 +3,49 @@
   <head>
     <title>Qualtrics Test</title>
 
-    <!-- ✅ Force modal styling using JS-injected CSS -->
+    <!-- ✅ Force styling on Qualtrics modal -->
     <script>
       window.addEventListener('load', function () {
         const interval = setInterval(() => {
           const modal = document.querySelector('.QSIFeedbackButton-target-container');
           if (modal) {
-            const style = document.createElement('style');
-            style.innerHTML = `
-              .QSIFeedbackButton-target-container {
-                width: 301px !important;
-                max-width: 301px !important;
-                height: 478px !important;
-                bottom: 120px !important;
-                right: 20px !important;
-                left: auto !important;
-                background-color: #fff !important;
-                box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
-                border-radius: 8px !important;
-                overflow: hidden !important;
-                padding: 0 !important;
-                margin: 0 !important;
-                position: fixed !important;
-                z-index: 2000000001 !important;
-              }
+            modal.style.cssText = `
+              width: 301px !important;
+              max-width: 301px !important;
+              height: auto !important;
+              background-color: #fff !important;
+              border-radius: 8px !important;
+              box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
+              overflow: hidden !important;
+              position: fixed !important;
+              bottom: 120px !important;
+              right: 20px !important;
+              left: auto !important;
+              padding: 0 !important;
+              margin: 0 !important;
+              z-index: 9999 !important;
+              display: flex !important;
+              flex-direction: column !important;
+              align-items: center !important;
+            `;
 
-              .QSIFeedbackButton-target-container iframe {
+            const iframe = modal.querySelector('iframe');
+            if (iframe) {
+              iframe.style.cssText = `
                 width: 100% !important;
                 height: 100% !important;
                 border: none !important;
                 display: block !important;
-              }
+              `;
+            }
 
-              .QSIFeedbackButton {
-                bottom: 120px !important;
-                right: 20px !important;
-                z-index: 2000000002 !important;
-              }
-            `;
-            document.head.appendChild(style);
             clearInterval(interval);
           }
         }, 100);
       });
     </script>
 
-    <!-- ✅ Qualtrics Intercept Snippet -->
+    <!-- ✅ Qualtrics Website Intercept Snippet -->
     <script type="text/javascript">
       (function(){
         var g=function(e,h,f,g){
