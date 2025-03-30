@@ -3,49 +3,54 @@
   <head>
     <title>Qualtrics Test</title>
 
-    <!-- ✅ Force styling on Qualtrics modal -->
+    <!-- ✅ Force narrow style on Qualtrics modal using MutationObserver -->
     <script>
-      window.addEventListener('load', function () {
-        const interval = setInterval(() => {
-          const modal = document.querySelector('.QSIFeedbackButton-target-container');
-          if (modal) {
-            modal.style.cssText = `
-              width: 301px !important;
-              max-width: 301px !important;
-              height: auto !important;
-              background-color: #fff !important;
-              border-radius: 8px !important;
-              box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
-              overflow: hidden !important;
-              position: fixed !important;
-              bottom: 120px !important;
-              right: 20px !important;
-              left: auto !important;
-              padding: 0 !important;
-              margin: 0 !important;
-              z-index: 9999 !important;
-              display: flex !important;
-              flex-direction: column !important;
-              align-items: center !important;
-            `;
+      document.addEventListener('DOMContentLoaded', function () {
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            mutation.addedNodes.forEach((node) => {
+              if (
+                node.classList &&
+                node.classList.contains('QSIFeedbackButton-target-container')
+              ) {
+                // Apply modal styles
+                node.style.width = '301px';
+                node.style.maxWidth = '301px';
+                node.style.height = 'auto';
+                node.style.right = '20px';
+                node.style.left = 'auto';
+                node.style.bottom = '100px';
+                node.style.borderRadius = '8px';
+                node.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.1)';
+                node.style.overflow = 'hidden';
+                node.style.padding = '0';
+                node.style.margin = '0';
+                node.style.boxSizing = 'border-box';
+                node.style.position = 'fixed';
+                node.style.backgroundColor = '#ffffff';
+                node.style.zIndex = '9999';
 
-            const iframe = modal.querySelector('iframe');
-            if (iframe) {
-              iframe.style.cssText = `
-                width: 100% !important;
-                height: 100% !important;
-                border: none !important;
-                display: block !important;
-              `;
-            }
+                // Style iframe inside the modal
+                const iframe = node.querySelector('iframe');
+                if (iframe) {
+                  iframe.style.width = '100%';
+                  iframe.style.height = '100%';
+                  iframe.style.border = 'none';
+                  iframe.style.display = 'block';
+                }
+              }
+            });
+          });
+        });
 
-            clearInterval(interval);
-          }
-        }, 100);
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+        });
       });
     </script>
 
-    <!-- ✅ Qualtrics Website Intercept Snippet -->
+    <!-- ✅ Qualtrics Website Feedback Snippet -->
     <script type="text/javascript">
       (function(){
         var g=function(e,h,f,g){
@@ -97,10 +102,11 @@
         }catch(i){}
       })();
     </script>
-  </head>
+    <!-- ✅ End Qualtrics Snippet -->
 
+  </head>
   <body>
     <h1>✅ Qualtrics Intercept Test</h1>
-    <p>Now add <code>?testuser=1</code> to the URL.</p>
+    <p>Now add <code>?testuser=1</code> to the URL to see the intercept.</p>
   </body>
 </html>
