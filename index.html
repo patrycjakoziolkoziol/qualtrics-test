@@ -3,45 +3,45 @@
   <head>
     <title>Qualtrics Test</title>
 
-    <!-- ✅ Style the outer Qualtrics modal to match Motorola's layout -->
-    <style>
-      /* ✅ Outer modal container */
-      .QSIFeedbackButton-target-container {
-        width: 301px !important;
-        max-width: 301px !important;
-        height: 478px !important;
-        bottom: 120px !important;
-        right: 20px !important;
-        left: auto !important;
-        padding: 0 !important;
-        margin: 0 !important;
-        background-color: #ffffff !important;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15) !important;
-        border-radius: 8px !important;
-        box-sizing: border-box !important;
-        z-index: 2000000001 !important;
-        overflow: hidden !important;
-        position: fixed !important;
-      }
+    <!-- ✅ Inject styles into Qualtrics modal AFTER it's loaded -->
+    <script>
+      window.addEventListener('load', function () {
+        const checkInterval = setInterval(() => {
+          const modal = document.querySelector('.QSIFeedbackButton-target-container');
+          if (modal) {
+            // Style the modal
+            modal.style.width = '301px';
+            modal.style.maxWidth = '301px';
+            modal.style.height = '478px';
+            modal.style.right = '20px';
+            modal.style.left = 'auto';
+            modal.style.bottom = '100px';
+            modal.style.borderRadius = '8px';
+            modal.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.1)';
+            modal.style.overflow = 'hidden';
+            modal.style.padding = '0';
+            modal.style.margin = '0';
+            modal.style.boxSizing = 'border-box';
+            modal.style.position = 'fixed';
+            modal.style.backgroundColor = '#ffffff';
+            modal.style.zIndex = '9999';
 
-      /* ✅ Ensure iframe fills the modal */
-      .QSIFeedbackButton-target-container iframe {
-        width: 100% !important;
-        height: 100% !important;
-        border: none !important;
-        display: block !important;
-      }
+            // Style the iframe inside
+            const iframe = modal.querySelector('iframe');
+            if (iframe) {
+              iframe.style.width = '100%';
+              iframe.style.height = '100%';
+              iframe.style.border = 'none';
+              iframe.style.display = 'block';
+            }
 
-      /* ✅ Feedback tab styling */
-      .QSIFeedbackButton {
-        bottom: 120px !important;
-        right: 20px !important;
-        width: auto !important;
-        z-index: 2000000002 !important;
-      }
-    </style>
+            clearInterval(checkInterval);
+          }
+        }, 100); // check every 100ms
+      });
+    </script>
 
-    <!-- ✅ BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET -->
+    <!-- ✅ Qualtrics Intercept Snippet -->
     <script type="text/javascript">
       (function(){
         var g=function(e,h,f,g){
@@ -93,7 +93,7 @@
         }catch(i){}
       })();
     </script>
-    <!-- ✅ END QUALTRICS SNIPPET -->
+    <!-- ✅ End Qualtrics Snippet -->
 
   </head>
   <body>
