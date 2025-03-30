@@ -2,6 +2,22 @@
 <html>
   <head>
     <title>Qualtrics Test</title>
+
+    <!-- ✅ Add Custom CSS to make the modal narrower -->
+    <style>
+      /* Narrow the Qualtrics modal */
+      .QSIFeedbackButton-target-container {
+        width: 280px !important;
+        max-width: 280px !important;
+        margin: 0 auto !important;
+      }
+
+      .QSIFeedbackButton-target-container iframe {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+    </style>
+
     <!-- BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET -->
     <script type="text/javascript">
       (function(){
@@ -55,9 +71,11 @@
       })();
     </script>
     <!-- END QUALTRICS SNIPPET -->
+
   </head>
   <body>
     <h1>✅ Qualtrics Intercept Test</h1>
     <p>Now add <code>?testuser=1</code> to the URL.</p>
   </body>
 </html>
+
