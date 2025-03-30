@@ -3,40 +3,45 @@
   <head>
     <title>Qualtrics Test</title>
 
-    <!-- ✅ Custom CSS to truly shrink the Qualtrics modal -->
+    <!-- ✅ Style the outer Qualtrics modal to match Motorola's layout -->
     <style>
-      /* NARROW the outer Qualtrics feedback modal */
+      /* ✅ Outer modal container */
       .QSIFeedbackButton-target-container {
-        width: 320px !important;
-        max-width: 320px !important;
-        left: auto !important;
+        width: 301px !important;
+        max-width: 301px !important;
+        height: 478px !important;
+        bottom: 120px !important;
         right: 20px !important;
-        bottom: 100px !important;
+        left: auto !important;
         padding: 0 !important;
         margin: 0 !important;
+        background-color: #ffffff !important;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15) !important;
+        border-radius: 8px !important;
         box-sizing: border-box !important;
-        border-radius: 12px !important;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1) !important;
-        transition: all 0.3s ease !important;
+        z-index: 2000000001 !important;
+        overflow: hidden !important;
+        position: fixed !important;
       }
 
-      /* Make iframe fit its container */
+      /* ✅ Ensure iframe fills the modal */
       .QSIFeedbackButton-target-container iframe {
         width: 100% !important;
         height: 100% !important;
         border: none !important;
-        display: block;
+        display: block !important;
       }
 
-      /* Optional: move and size the Feedback tab */
+      /* ✅ Feedback tab styling */
       .QSIFeedbackButton {
-        bottom: 100px !important;
+        bottom: 120px !important;
         right: 20px !important;
         width: auto !important;
+        z-index: 2000000002 !important;
       }
     </style>
 
-    <!-- BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET -->
+    <!-- ✅ BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET -->
     <script type="text/javascript">
       (function(){
         var g=function(e,h,f,g){
@@ -88,7 +93,7 @@
         }catch(i){}
       })();
     </script>
-    <!-- END QUALTRICS SNIPPET -->
+    <!-- ✅ END QUALTRICS SNIPPET -->
 
   </head>
   <body>
@@ -96,4 +101,3 @@
     <p>Now add <code>?testuser=1</code> to the URL.</p>
   </body>
 </html>
-
