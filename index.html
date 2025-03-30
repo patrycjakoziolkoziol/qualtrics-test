@@ -2,61 +2,22 @@
 <html>
   <head>
     <title>Qualtrics Test</title>
+  </head>
+  <body>
+    <h1>✅ Qualtrics Intercept Test</h1>
+    <p>Now add <code>?testuser=1</code> to the URL.</p>
 
-    <!-- ✅ Force narrow style on Qualtrics modal using MutationObserver -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const observer = new MutationObserver((mutations) => {
-          mutations.forEach((mutation) => {
-            mutation.addedNodes.forEach((node) => {
-              if (
-                node.classList &&
-                node.classList.contains('QSIFeedbackButton-target-container')
-              ) {
-                // Apply modal styles
-                node.style.width = '301px';
-                node.style.maxWidth = '301px';
-                node.style.height = 'auto';
-                node.style.right = '20px';
-                node.style.left = 'auto';
-                node.style.bottom = '100px';
-                node.style.borderRadius = '8px';
-                node.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.1)';
-                node.style.overflow = 'hidden';
-                node.style.padding = '0';
-                node.style.margin = '0';
-                node.style.boxSizing = 'border-box';
-                node.style.position = 'fixed';
-                node.style.backgroundColor = '#ffffff';
-                node.style.zIndex = '9999';
-
-                // Style iframe inside the modal
-                const iframe = node.querySelector('iframe');
-                if (iframe) {
-                  iframe.style.width = '100%';
-                  iframe.style.height = '100%';
-                  iframe.style.border = 'none';
-                  iframe.style.display = 'block';
-                }
-              }
-            });
-          });
-        });
-
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true,
-        });
-      });
-    </script>
-
-    <!-- ✅ Qualtrics Website Feedback Snippet -->
+    <!-- BEGIN QUALTRICS WEBSITE FEEDBACK SNIPPET -->
     <script type="text/javascript">
       (function(){
         var g=function(e,h,f,g){
-          this.get=function(a){for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){
-            for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);
-            if(0==d.indexOf(a))return d.substring(a.length,d.length)}return null};
+          this.get=function(a){
+            for(var a=a+"=",c=document.cookie.split(";"),b=0,e=c.length;b<e;b++){
+              for(var d=c[b];" "==d.charAt(0);)d=d.substring(1,d.length);
+              if(0==d.indexOf(a))return d.substring(a.length,d.length)
+            }
+            return null
+          };
           this.set=function(a,c){
             var b="",b=new Date;
             b.setTime(b.getTime()+6048E5);
@@ -84,29 +45,26 @@
               var a=document.createElement("script");
               a.type="text/javascript";
               a.src=g;
-              document.body&&document.body.appendChild(a)
+              document.body && document.body.appendChild(a)
             }
           };
           this.start=function(){
             var t=this;
-            "complete"!==document.readyState?
-              window.addEventListener?
-              window.addEventListener("load",function(){t.go()},!1):
-              window.attachEvent&&window.attachEvent("onload",function(){t.go()}):
+            "complete" !== document.readyState ?
+              window.addEventListener ?
+                window.addEventListener("load", function(){t.go()}, !1) :
+              window.attachEvent && window.attachEvent("onload", function(){t.go()}) :
               t.go()
           };
         };
-        try{
-          (new g(100,"r","QSI_S_ZN_shSk0NQEbBNTOyl",
-          "https://znshsk0nqebbntoyl-moto.siteintercept.qualtrics.com/SIE/?Q_ZID=ZN_shSk0NQEbBNTOyl")).start()
-        }catch(i){}
+        try {
+          (new g(100, "r", "QSI_S_ZN_1DSSJ1zsMXAoCJK",
+          "https://zn1dssj1zsmxaocjk-moto.siteintercept.qualtrics.com/SIE/?Q_ZID=ZN_1DSSJ1zsMXAoCJK")).start();
+        } catch(i){}
       })();
     </script>
-    <!-- ✅ End Qualtrics Snippet -->
+    <div id='ZN_1DSSJ1zsMXAoCJK'><!--DO NOT REMOVE-CONTENTS PLACED HERE--></div>
+    <!-- END QUALTRICS SNIPPET -->
 
-  </head>
-  <body>
-    <h1>✅ Qualtrics Intercept Test</h1>
-    <p>Now add <code>?testuser=1</code> to the URL to see the intercept.</p>
   </body>
 </html>
